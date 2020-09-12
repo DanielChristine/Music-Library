@@ -1,11 +1,21 @@
 "use strict"
 
+function get(){
+$.get("http://www.devcodecampmusiclibrary.com/api/music", function(response, status){
 
+writeTable(response);
 
-function getAllMusic(){
-    //gets array of JSON objects from DB
-    return [];
+})}
+
+function writeTable(response){
+    for (let index = 0; index < response.length; index++) {
+$("tbody").append(`<td>${0}</td>`);
+    }
 }
+
+get();
+
+
 function getSpecficMusic(id){
-    //gets specific music object with this id
+
     return {}
