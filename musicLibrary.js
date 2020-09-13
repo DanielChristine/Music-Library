@@ -1,11 +1,11 @@
 "use strict";
 
-function get() { // get vs getJSON
+function get() {
   $.get("http://www.devcodecampmusiclibrary.com/api/music", function (
     response,
     status
   ) {
-    writeTable(response); // should status be added as a parameter to writeTable
+    writeTable(response);
   });
 }
 
@@ -18,29 +18,18 @@ function writeTable(response) {
                             <td>${response[index]["artist"]}</td>
                             <td>${response[index]["genre"]}</td>
                             <td>${response[index]["releaseDate"]}</td>
-                      </tr>`); 
+                      </tr>`);
   }
 }
 
 get();
 
-
-
-// $.ajax({
-//     url: `http://www.devcodecampmusiclibrary.com/api/music`,
-//     dataType: "json",
-//     type: "post",
-//     success: function (data, textStatus, jQxhr) {
-//       //Do something with response data (data parameter)
-//     },
-//     error: function (jqXhr, textStatus, errorThrown) {
-//       //if the request fails, the errorThrown parameter will contain details of the error
-//       console.log(errorThrown);
-//     },
-//   });
-
-// let findMusic = prompt("Enter an artist, album, title, etc.")
-// function getSpecficMusic(id){
-
-//     return;
-// }
+function getSpecficMusic() {
+  $.get("http://www.devcodecampmusiclibrary.com/api/music", function (
+    response,
+    status
+  ) {
+    let findMusic = prompt("Enter an artist, album, title, etc.");
+    writeTable(response).filter(findMusic);
+  });
+}
